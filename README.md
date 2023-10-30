@@ -196,6 +196,6 @@ dan hasil yang saya dapatkan adalah 1.0 atau 100%, itu berarti model ini memilik
 
 ## Deployment
 
-[My Estimation App](https://estimation-application-with-dontkeep.streamlit.app/).
+[My Estimation App](https://aryasuryaprasetya2002-sereal.streamlit.app/).
 
-![Alt text](A1.png)
+![Alt text](a2.png)
