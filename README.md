@@ -192,7 +192,7 @@ f1 = f1_score(y_test_binary, y_pred_binary)
 
 print('F1 Score:', f1)
 ```
-dan hasil yang saya dapatkan adalah 0.8464991023339318 atau 84.6%, itu berarti model ini memiliki keseimbangan yang baik antara presisi dan recall. Karena kita mencari patokan harga untuk membeli Apartment maka model yang presisi sangat dibutuhkan agar kemungkinan terjadinya kesalahan semakin sedikit.
+dan hasil yang saya dapatkan adalah 1.0 atau 100%, itu berarti model ini memiliki keseimbangan yang baik antara presisi dan recall. Karena kita mencari model yang presisi sangat dibutuhkan agar kemungkinan terjadinya kesalahan semakin sedikit.
 
 ## Deployment
 
