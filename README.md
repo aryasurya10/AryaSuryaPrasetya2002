@@ -4,37 +4,8 @@
 ### Kelas : Pagi A
 
 ## Domain Proyek
-Pengembangan Produk:
-Proyek: Pengembangan produk sereal baru dengan kandungan gizi yang ditingkatkan dan rasa yang menarik.
-Domain Proyek: Pengembangan Produk Pangan
-
-Peningkatan Proses Produksi:
-Proyek: Implementasi teknologi baru untuk meningkatkan efisiensi dalam proses produksi sereal.
-Domain Proyek: Manufaktur dan Produksi Pangan
-
-Penelitian Gizi dan Kesehatan:
-Proyek: Penelitian tentang manfaat kesehatan dari konsumsi sereal yang kaya serat dan nutrisi.
-Domain Proyek: Penelitian Kesehatan dan Nutrisi
-
-Optimasi Rantai Pasokan:
-Proyek: Pengoptimalkan rantai pasokan sereal dari petani ke produsen untuk meminimalkan pemborosan dan biaya.
-Domain Proyek: Manajemen Rantai Pasokan
-
-Pemasaran dan Strategi Penjualan:
-Proyek: Pengembangan strategi pemasaran baru untuk memasarkan sereal kepada kelompok konsumen tertentu.
-Domain Proyek: Pemasaran dan Penjualan
-
-Pengelolaan Limbah:
-Proyek : Pengembangan metode daur ulang limbah sereal menjadi produk lain atau energi.
-Domain Proyek: Pengelolaan Lingkungan dan Limbah
-
-Inovasi Kemasan:
-Proyek : Pengembangan kemasan yang ramah lingkungan atau inovatif untuk produk sereal.
-Domain Proyek: Desain Kemasan dan Inovasi
-
-Setiap proyek dalam domain ini akan melibatkan tim yang memiliki pengetahuan khusus dalam bidang tersebut, serta memerlukan perencanaan, pengelolaan risiko, dan evaluasi hasil yang cermat untuk mencapai tujuan proyek dengan sukses.
- 
-
+Proyek ini di buat untuk meng klasifikasikan tentang target sereal
+dan sengaja membuat klasifikasi proyek ini
 ## Business Understanding
 Pemahaman bisnis sereal mengacu pada pemahaman tentang industri makanan sereal, yang melibatkan produksi, distribusi, pemasaran, dan penjualan produk makanan yang terbuat dari sereal.
 
@@ -42,22 +13,51 @@ Pemahaman bisnis sereal mengacu pada pemahaman tentang industri makanan sereal, 
 Bagian laporan ini mencakup:
 
 ### Problem Statements
-Sereal merupakan sumber karbonidrat, serat,vitamin, dan mineral, serta dapat menjadi bagian dari pola makan sehat. 
+Dalam kasus ini masalah nya dalam seral target ,dan menentukan nilai accuracy tentang target
  
 
 ### Goals
-untuk memberikan nutrisi dan energi untuk memulai hari.
+Menemukan klasifikasi target sereal
 
 
 ### Solution statements
 Sereal adalah pilihan sarapan yang praktis dan sehat. anda dapat menambahkan potongan buah buahan segar atau yogurt untuk variasi yang lebih seimbang.
 
 ## Data Understanding
-Pemahaman data seral dalam konteks nutrisi melibatkan membaca label gizi untuk mengetahui informasi tentang kandungan kalori, protein, serat, lemak, dan vitamin serta mineral dalam sereal tersebut.
+Name: Name of cereal
+mfr: Manufacturer of cereal
+A = American Home Food Products;
+G = General Mills
+K = Kelloggs
+N = Nabisco
+P = Post
+Q = Quaker Oats
+R = Ralston Purina
+type:
+cold
+hot
+calories: calories per serving
+protein: grams of protein
+fat: grams of fat
+sodium: milligrams of sodium
+fiber: grams of dietary fiber
+carbo: grams of complex carbohydrates
+sugars: grams of sugars
+potass: milligrams of potassium
+vitamins: vitamins and minerals - 0, 25, or 100, indicating the typical percentage of FDA recommended
+shelf: display shelf (1, 2, or 3, counting from the floor)
+weight: weight in ounces of one serving
+cups: number of cups in one serving
+ [Klasifkasi Sereal 8](https://www.kaggle.com/datasets/crawford/80-cereals)
+
+![image](A3.png)
+![image](A4.png)
+![image](A5.png)
+![image](A6.png)
  
 ## Data Preparation
 ### Data Collection
-Pengumpulan data sereal mengacu pada proses mengumpulkan informasi atau data terkait dengan tanaman sereal, seperti gandum, beras, jagung, oat, barley, dan sejenisnya. Data ini dapat digunakan untuk berbagai tujuan, termasuk analisis pertanian, perencanaan panen, penelitian ilmiah, dan manajemen sumber daya alam.
+Untuk dataset ini saya mengambil dari kaggle ,kalau kalian mau ambil dari link di atas
 
 ### Data Discovery And Profiling
 ```bash
@@ -113,9 +113,9 @@ df.head()
 df.info()
 ```
 ``` bash
-features = ['mfr', 'type', 'calories', 'protein', 'fat', 'sodium', 'fiber', 'carbo', 'sugars','potass', 'vitamins']
+features = ['mfr', 'type', 'calories', 'protein', 'fat', 'sodium', 'fiber', 'carbo', 'sugars','potass', 'vitamins','shelf']
 x = df[features]
-y = df['vitamins']
+y = df['weight']
 x.shape, y.shape
 ```
 ```bash
@@ -174,11 +174,7 @@ pickle.dump(lr,open(filename,'wb'))
 ```
 
 ## Evaluation
-Disini saya menggunakan F1 score sebagai metrik evaluasi.
-- F1 Score: F1 score adalah rata-rata harmonis antara presisi dan recall. F1 score memberikan keseimbangan antara presisi dan recall. F1 score dihitung dengan menggunakan rumus: <br> 
-$$2*(P*R/P+R)$$
 
-- Setelah itu saya menerapkannya dalam kode menggunakan fungsi f1_score, seperti berikut :
 
 ``` bash 
 from sklearn.metrics import precision_recall_curve, f1_score
